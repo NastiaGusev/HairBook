@@ -5,18 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     android:orientation="vertical"
     android:gravity="center"
     >
 
     <ImageView
+        android:id="@+id/main_logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/ic_scissors"
        />
 
     <TextView
+        android:id="@+id/main_appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HairBook"
@@ -31,6 +33,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_BTN_getStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="get started"
@@ -40,9 +43,6 @@
         app:rippleColor="@color/mainColor"
         android:backgroundTint="@color/mainColor"
         android:layout_marginTop="20dp"
-        >
-    </com.google.android.material.button.MaterialButton>
-
-
+        />
 
 </LinearLayout>
