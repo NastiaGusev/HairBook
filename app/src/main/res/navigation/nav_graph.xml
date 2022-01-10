@@ -9,5 +9,14 @@
         android:id="@+id/chooseServiceFragment"
         android:name="com.example.hairbook.fragments.ChooseServiceFragment"
         android:label="fragment_choose_service"
-        tools:layout="@layout/fragment_choose_service" />
+        tools:layout="@layout/fragment_choose_service" >
+        <action
+            android:id="@+id/action_chooseServiceFragment_to_pickDateFragment"
+            app:destination="@id/pickDateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickDateFragment"
+        android:name="com.example.hairbook.fragments.PickDateFragment"
+        android:label="fragment_pick_date"
+        tools:layout="@layout/fragment_pick_date" />
 </navigation>

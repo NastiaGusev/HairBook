@@ -4,64 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ChooseServiceFragment">
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:elevation="10dp"
-        android:padding="20dp"
-        app:cardCornerRadius="15dp"
-        android:backgroundTint="@color/darkPurple">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/choose_woman"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_haircut_woman"
-                android:layout_margin="16dp"
-                />
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_fringe"
+                android:layout_margin="16dp"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:gravity="center">
+            <ImageButton
+                android:id="@+id/choose_man"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/transparent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_beard"
+                android:layout_margin="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Haircut"
-                    android:textSize="30sp"
-                    android:textColor="@color/white"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Booking"
-                    app:cornerRadius="150dp"
-                    app:strokeColor="@color/mainColor"
-                    android:textColor="@color/white"
-                    app:rippleColor="@color/mainColor"
-                    android:backgroundTint="@color/mainColor"
-                    android:layout_marginTop="10dp"
-                    />
-
-            </LinearLayout>
-
+            </ImageButton>
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            tools:listitem="@layout/layout_services_item"
+            android:transitionGroup="true"/>
+    </LinearLayout>
+
 
 </FrameLayout>

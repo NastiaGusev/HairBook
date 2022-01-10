@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_back.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_beard.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_fringe.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_haircut.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_scissors.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_services.xml" value="0.21927083333333333" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_service.xml" value="0.264" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_gender.xml" value="0.18931159420289856" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_service.xml" value="0.176" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_pick_date.xml" value="0.2" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_service_item.xml" value="0.18931159420289856" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_services_item.xml" value="0.176" />
       </map>
     </option>
   </component>

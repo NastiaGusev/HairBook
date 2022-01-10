@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding.mainBTNGetStarted.setOnClickListener {
             val intent = Intent(this, ServicesActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }
