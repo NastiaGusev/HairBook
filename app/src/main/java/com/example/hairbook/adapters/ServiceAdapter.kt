@@ -60,5 +60,10 @@ class ServiceAdapter(private val listener: OnItemClickListener) :
         items = serviceItemList
     }
 
+    fun changeLists(serviceItemList: List<ServiceItem>){
+        items = serviceItemList
+        this.notifyDataSetChanged()
+    }
+
 
 }

@@ -12,7 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hairbook.R
 import com.example.hairbook.adapters.ServiceAdapter
-import com.example.hairbook.data.DataSource
+import com.example.hairbook.data.ManDataSource
+import com.example.hairbook.data.WomanDataSource
 import com.example.hairbook.databinding.FragmentChooseServiceBinding
 import com.example.hairbook.models.ServiceItem
 import com.google.android.material.transition.MaterialElevationScale
@@ -37,9 +38,18 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initRecycleView()
         addDataSet(view)
+
+        binding.chooseWoman.setOnClickListener {
+            val data = WomanDataSource.createDataSet()
+            serviceAdapter.changeLists(data)
+        }
+
+        binding.chooseMan.setOnClickListener {
+            val data = ManDataSource.createDataSet()
+            serviceAdapter.changeLists(data)
+        }
 
         postponeEnterTransition()
         view.doOnPreDraw {
@@ -50,12 +60,12 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
 
     private fun addDataSet(view: View) {
         //create posts
-        val data = DataSource.createDataSet()
+        val data = WomanDataSource.createDataSet()
 
         //init adapter`s list
         serviceAdapter.initList(data)
-
     }
+
 
     private fun initRecycleView() {
         binding.recycleView.apply {

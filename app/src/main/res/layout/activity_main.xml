@@ -14,7 +14,7 @@
         android:id="@+id/main_logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/ic_scissors"
+        android:src="@drawable/ic_icon"
        />
 
     <TextView

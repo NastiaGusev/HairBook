@@ -21,31 +21,38 @@
         android:onClick="@{(view) -> listener.onItemClick(view, serviceItem)}"
         android:transitionName="@{@string/service_item_transition_name(serviceItem.id)}"
         app:cardCornerRadius="10dp"
-        android:backgroundTint="@color/lightYellow"
+        android:backgroundTint="@color/darkPurple"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_margin="20dp">
+            >
 
-            <ImageView
-                android:id="@+id/service_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_fringe"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/mainColor">
+
+                <ImageView
+                    android:id="@+id/service_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_scissors"
+                    android:layout_margin="30dp"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/service_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Haircut"
-                android:layout_margin="16dp"
-                android:textStyle="bold"
-                android:textSize="30sp"
+                android:layout_marginStart="40dp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
