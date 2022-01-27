@@ -19,40 +19,48 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/mainColor">
 
             <ImageButton
                 android:id="@+id/pick_date_back"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
-                android:layout_gravity="end"
+                android:layout_gravity="start"
                 android:src="@drawable/ic_back"
                 android:layout_margin="10dp"
                 android:background="?attr/actionBarItemBackground"
                 />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:text="Service"
-                android:layout_margin="16dp"/>
+                android:layout_marginBottom="30dp">
+                <ImageView
+                    android:id="@+id/service_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_scissors"
+                    />
+                <TextView
+                    android:id="@+id/service_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:text="Service"
+                    android:textColor="@color/white"
+                    android:layout_margin="16dp"
+                    />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choose your date:"
-                android:textSize="17sp"
-                android:layout_margin="16dp"/>
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
-
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -11,7 +11,7 @@ class WomanDataSource {
             val list = ArrayList<ServiceItem>()
             list.add(
                 ServiceItem(
-                    1,
+                    0,
                     R.drawable.ic_scissors,
                     "HAIRCUT",
                     "woman"
@@ -19,9 +19,17 @@ class WomanDataSource {
             )
             list.add(
                 ServiceItem(
-                    2,
+                    1,
                     R.drawable.ic_hair_dryer,
                     "STYLING",
+                    "woman"
+                )
+            )
+            list.add(
+                ServiceItem(
+                    2,
+                    R.drawable.ic_hair_straightener,
+                    "KERATIN",
                     "woman"
                 )
             )
@@ -36,21 +44,11 @@ class WomanDataSource {
             list.add(
                 ServiceItem(
                     4,
-                    R.drawable.ic_hair_straightener,
-                    "KERATIN",
-                    "woman"
-                )
-            )
-            list.add(
-                ServiceItem(
-                    5,
                     R.drawable.ic_wig,
-                    "EXTENSTIONS",
+                    "EXTENSIONS",
                     "woman"
                 )
             )
-
-
             return list
 
 

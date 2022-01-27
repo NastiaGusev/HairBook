@@ -18,5 +18,12 @@
         android:id="@+id/pickDateFragment"
         android:name="com.example.hairbook.fragments.PickDateFragment"
         android:label="fragment_pick_date"
-        tools:layout="@layout/fragment_pick_date" />
+        tools:layout="@layout/fragment_pick_date" >
+        <argument
+            android:name="serviceItemId"
+            app:argType="long" />
+        <argument
+            android:name="serviceItemGender"
+            app:argType="string" />
+    </fragment>
 </navigation>

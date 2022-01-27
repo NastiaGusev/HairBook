@@ -12,8 +12,11 @@
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_haircut_woman.xml" value="0.35208333333333336" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_icon.xml" value="0.35208333333333336" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_man.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_man_choosen.xml" value="0.190625" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_scissors.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_woman.xml" value="0.190625" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_woman_choosen.xml" value="0.190625" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_services.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_gender.xml" value="0.18931159420289856" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_service.xml" value="0.176" />

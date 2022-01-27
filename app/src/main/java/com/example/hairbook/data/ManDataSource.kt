@@ -9,7 +9,7 @@ class ManDataSource{
             val list = ArrayList<ServiceItem>()
             list.add(
                 ServiceItem(
-                    1,
+                    0,
                     R.drawable.ic_scissors,
                     "HAIRCUT",
                     "man"
@@ -17,7 +17,7 @@ class ManDataSource{
             )
             list.add(
                 ServiceItem(
-                    2,
+                    1,
                     R.drawable.ic_straight_razor,
                     "SHAVE",
                     "man"
@@ -25,7 +25,7 @@ class ManDataSource{
             )
             list.add(
                 ServiceItem(
-                    3,
+                    2,
                     R.drawable.ic_hair_dye,
                     "COLOR",
                     "man"

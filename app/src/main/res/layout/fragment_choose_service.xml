@@ -11,30 +11,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PICK YOUR SERVICE"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/choose_woman"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:backgroundTint="@android:color/transparent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_woman"
-                android:layout_margin="16dp"/>
+                android:src="@drawable/ic_woman_choosen"
+                />
 
             <ImageButton
                 android:id="@+id/choose_man"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:backgroundTint="@android:color/transparent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_man"
-                android:layout_margin="16dp">
+               >
 
             </ImageButton>
         </LinearLayout>

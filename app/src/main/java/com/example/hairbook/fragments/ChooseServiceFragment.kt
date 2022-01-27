@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hairbook.R
 import com.example.hairbook.adapters.ServiceAdapter
@@ -20,6 +21,9 @@ import com.google.android.material.transition.MaterialElevationScale
 
 class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
 
+    companion object{
+        var gender: String = "woman"
+    }
     private lateinit var binding: FragmentChooseServiceBinding
     private var serviceAdapter = ServiceAdapter(this)
 
@@ -42,11 +46,17 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
         addDataSet(view)
 
         binding.chooseWoman.setOnClickListener {
+            gender = "woman"
             val data = WomanDataSource.createDataSet()
+            binding.chooseMan.setImageResource(R.drawable.ic_man)
+            binding.chooseWoman.setImageResource(R.drawable.ic_woman_choosen)
             serviceAdapter.changeLists(data)
         }
 
         binding.chooseMan.setOnClickListener {
+            gender = "man"
+            binding.chooseWoman.setImageResource(R.drawable.ic_woman)
+            binding.chooseMan.setImageResource(R.drawable.ic_man_choosen)
             val data = ManDataSource.createDataSet()
             serviceAdapter.changeLists(data)
         }
@@ -55,14 +65,17 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
         view.doOnPreDraw {
             startPostponedEnterTransition()
         }
-
     }
 
     private fun addDataSet(view: View) {
-        //create posts
-        val data = WomanDataSource.createDataSet()
-
-        //init adapter`s list
+        lateinit var data : ArrayList<ServiceItem>
+        if(gender== "woman"){
+            data = WomanDataSource.createDataSet()
+        }else if(gender== "man"){
+            binding.chooseWoman.setImageResource(R.drawable.ic_woman)
+            binding.chooseMan.setImageResource(R.drawable.ic_man_choosen)
+            data = ManDataSource.createDataSet()
+        }
         serviceAdapter.initList(data)
     }
 
@@ -70,7 +83,6 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
     private fun initRecycleView() {
         binding.recycleView.apply {
             layoutManager = LinearLayoutManager(activity)
-
             adapter = serviceAdapter
         }
     }
@@ -82,11 +94,9 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
         reenterTransition = MaterialElevationScale(true).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
-
-        Log.d("check1", "id: ${item.id}")
         val serviceItemDetailTransitionName = getString(R.string.service_item_detail_transition_name)
         val extras = FragmentNavigatorExtras(view to serviceItemDetailTransitionName)
-        val directions = ChooseServiceFragmentDirections.actionChooseServiceFragmentToPickDateFragment()
+        val directions = ChooseServiceFragmentDirections.actionChooseServiceFragmentToPickDateFragment(item.id, item.gender)
         findNavController().navigate(directions, extras)
     }
 
