@@ -5,4 +5,5 @@
 
     <string name="service_item_transition_name">service_item_%1$s</string>
     <string name="service_item_detail_transition_name">service_item_detail</string>
+
 </resources>

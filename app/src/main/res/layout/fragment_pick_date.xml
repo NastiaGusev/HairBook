@@ -1,82 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.PickDateFragment">
+    android:transitionName="@string/service_item_detail_transition_name"
+    tools:context=".fragments.PickDateFragment"
+    android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="10dp"
-        android:padding="20dp"
-        android:transitionName="@string/service_item_detail_transition_name"
-        app:cardCornerRadius="15dp"
-        >
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/pick_date_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="start"
+            android:layout_margin="20dp"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/mainColor">
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/pick_date_back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="centerCrop"
-                android:layout_gravity="start"
-                android:src="@drawable/ic_back"
-                android:layout_margin="20dp"
-                android:background="?attr/actionBarItemBackground"
-                />
+            <ImageView
+                android:id="@+id/service_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_scissors" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/service_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginBottom="30dp">
-                <ImageView
-                    android:id="@+id/service_image"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_scissors"
-                    />
-                <TextView
-                    android:id="@+id/service_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="30sp"
-                    android:text="Service"
-                    android:textColor="@color/white"
-                    android:layout_margin="16dp"
-                    />
-
-            </LinearLayout>
-
-                <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/app_bar"
-                    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <devs.mulham.horizontalcalendar.HorizontalCalendarView
-                        android:id="@+id/calendarView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:textColorNormal="@color/darkPurple"
-                        app:textColorSelected="@color/mainColor"
-                        app:selectorColor="@color/mainColor" />
-
-                </com.google.android.material.appbar.AppBarLayout>
+                android:layout_margin="16dp"
+                android:text="Service"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:selectorColor="@color/mainColor"
+            app:textColorNormal="@color/darkPurple"
+            app:textColorSelected="@color/mainColor" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your time"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/time_txt_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="10:00"
+            android:textSize="18sp"
+            android:clickable="true"
+            android:textColor="@color/grey"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/time_txt_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="11:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="12:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="13:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time_txt_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="14:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time_unselectable"
+            android:padding="10dp"
+            android:text="15:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time_selected"
+            android:padding="10dp"
+            android:text="16:00"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/time_txt_17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="17:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time_txt_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="18:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="19:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="20:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="21:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/BTN_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        app:cornerRadius="150dp"
+        app:strokeColor="@color/mainColor"
+        android:textColor="@color/white"
+        app:rippleColor="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        />
 
 </LinearLayout>

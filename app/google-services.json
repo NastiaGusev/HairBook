@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "515040007971",
+    "project_id": "hairbook-d5221",
+    "storage_bucket": "hairbook-d5221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515040007971:android:2eae37d34cefabde07de96",
+        "android_client_info": {
+          "package_name": "com.example.hairbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515040007971-7ptbh86qcoc8pu6dgqur0cpao51sckqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCTt6Hv1YhRq_fgtdcyBeMedsEsSnFi6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515040007971-7ptbh86qcoc8pu6dgqur0cpao51sckqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

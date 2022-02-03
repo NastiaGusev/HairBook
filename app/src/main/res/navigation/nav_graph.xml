@@ -25,5 +25,31 @@
         <argument
             android:name="serviceItemGender"
             app:argType="string" />
+        <action
+            android:id="@+id/action_pickDateFragment_to_submitFragment"
+            app:destination="@id/submitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/submitFragment"
+        android:name="com.example.hairbook.fragments.SubmitFragment"
+        android:label="fragment_submit"
+        tools:layout="@layout/fragment_submit" >
+
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="serviceName"
+            app:argType="string" />
+        <argument
+            android:name="serviceImage"
+            app:argType="integer" />
+        <argument
+            android:name="serviceGender"
+            app:argType="string" />
+
     </fragment>
 </navigation>
