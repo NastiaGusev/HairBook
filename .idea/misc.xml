@@ -6,8 +6,11 @@
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/background_time.xml" value="0.1825" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/background_time_selected.xml" value="0.1825" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/background_time_unselectable.xml" value="0.1825" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_appointment.xml" value="0.1415" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_back.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_beard.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_calendar.xml" value="0.1415" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_delete.xml" value="0.1415" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_fringe.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_hair_dryer.xml" value="0.35208333333333336" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/drawable/ic_hair_dye.xml" value="0.35208333333333336" />
@@ -23,12 +26,20 @@
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_finish.xml" value="0.2" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/activity_services.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/custom_dialog.xml" value="0.4" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_change_hours.xml" value="0.17999144933732364" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_gender.xml" value="0.18931159420289856" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_service.xml" value="0.176" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_pick_date.xml" value="0.2" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_choose_service.xml" value="0.2" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_finish.xml" value="0.16374519025224454" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_hairdresser.xml" value="0.2" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_home.xml" value="0.1658828559213339" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_my_appointments.xml" value="0.176" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_pick_date.xml" value="0.264" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/fragment_submit.xml" value="0.264" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_appointment_item.xml" value="0.264" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_appointment_item_delete.xml" value="0.264" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_service_item.xml" value="0.18931159420289856" />
-        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_services_item.xml" value="0.3932038834951456" />
+        <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/layout/layout_services_item.xml" value="0.4" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.126" />
         <entry key="..\:/Users/gusev/StudioProjects/HairBook/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.126" />
       </map>

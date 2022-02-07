@@ -61,6 +61,11 @@ class ChooseServiceFragment : Fragment(), ServiceAdapter.OnItemClickListener {
             serviceAdapter.changeLists(data)
         }
 
+        binding.myAppointments.setOnClickListener {
+            val directions = ChooseServiceFragmentDirections.actionChooseServiceFragmentToMyAppointmentsFragment()
+            findNavController().navigate(directions)
+        }
+
         postponeEnterTransition()
         view.doOnPreDraw {
             startPostponedEnterTransition()

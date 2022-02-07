@@ -11,13 +11,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageButton
+            android:id="@+id/myAppointments"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_calendar"
+            android:layout_gravity="end"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PICK YOUR SERVICE"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
+
             android:textColor="@color/black"
             android:textSize="18sp"/>
 
@@ -29,8 +39,8 @@
 
             <ImageButton
                 android:id="@+id/choose_woman"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:backgroundTint="@android:color/transparent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_woman_choosen"
@@ -38,14 +48,14 @@
 
             <ImageButton
                 android:id="@+id/choose_man"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:backgroundTint="@android:color/transparent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_man"
                >
-
             </ImageButton>
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -57,7 +67,7 @@
             android:layout_marginBottom="16dp"
             tools:listitem="@layout/layout_services_item"
             android:transitionGroup="true"/>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </FrameLayout>

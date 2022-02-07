@@ -151,7 +151,7 @@ class PickDateFragment : Fragment() {
 
         val database =
             FirebaseDatabase.getInstance("https://hairbook-d5221-default-rtdb.firebaseio.com/")
-        val myRef = database.getReference(service.gender).child(service.serviceName).child(currentDate)
+        val myRef = database.getReference(currentDate)
 
         myRef.addListenerForSingleValueEvent(
             object : ValueEventListener {

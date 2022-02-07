@@ -3,15 +3,20 @@ package com.example.hairbook.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgs
 import com.example.hairbook.databinding.ActivityFinishBinding
+import com.example.hairbook.fragments.SubmitFragmentArgs
 
 class FinishActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityFinishBinding
-    private val serviceName = "SERVICE_NAME"
-    private val dateAndTime = "DATE_AND_TIME"
-    private val name = "NAME"
-    private val phone = "PHONE"
+
+    private val args: FinishActivityArgs by navArgs()
+    private val serviceName: String by lazy(LazyThreadSafetyMode.NONE) { args.serviceName }
+    private val dateAndTime: String by lazy(LazyThreadSafetyMode.NONE) { args.dateAndTime }
+    private val clientName: String by lazy(LazyThreadSafetyMode.NONE) { args.clientName }
+    private val clientPhone: String by lazy(LazyThreadSafetyMode.NONE) { args.clientPhone }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,14 +24,10 @@ class FinishActivity : AppCompatActivity() {
         binding = ActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sn = intent.getStringExtra(serviceName)
-        val dt = intent.getStringExtra(dateAndTime)
-        val userName = intent.getStringExtra(name)
-        val userPhone = intent.getStringExtra(phone)
-        binding.textViewServiceName.text = sn
-        binding.textViewDateAndTime.text = dt
-        binding.textViewName.text = userName
-        binding.textViewPhone.text = userPhone
+        binding.textViewServiceName.text = serviceName
+        binding.textViewDateAndTime.text = dateAndTime
+        binding.textViewName.text = clientName
+        binding.textViewPhone.text = clientPhone
     }
 
     override fun onBackPressed() {

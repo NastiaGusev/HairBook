@@ -5,44 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
     android:orientation="vertical"
-    android:gravity="center"
-    >
+    tools:context=".activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/main_logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/ic_icon"
-       />
-
-    <TextView
-        android:id="@+id/main_appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HairBook"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:padding="16dp"
-        />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_BTN_getStarted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="get started"
-        app:cornerRadius="150dp"
-        app:strokeColor="@color/mainColor"
-        android:textColor="@color/white"
-        app:rippleColor="@color/mainColor"
-        android:backgroundTint="@color/mainColor"
-        android:layout_marginTop="20dp"
-        />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
 </LinearLayout>

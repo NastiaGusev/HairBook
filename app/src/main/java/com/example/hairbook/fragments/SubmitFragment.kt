@@ -1,15 +1,15 @@
 package com.example.hairbook.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.hairbook.activities.FinishActivity
 import com.example.hairbook.databinding.FragmentSubmitBinding
+import com.example.hairbook.models.Appointment
 import com.example.hairbook.models.User
 import com.google.firebase.database.FirebaseDatabase
 
@@ -57,18 +57,20 @@ class SubmitFragment : Fragment() {
 
     private fun saveAppointment(name: String, phone: String){
         val database = FirebaseDatabase.getInstance("https://hairbook-d5221-default-rtdb.firebaseio.com/")
-        val myRef = database.getReference(serviceGender).child(serviceName).child(currentDate)
-        myRef.child(currentTime).setValue(User(name,phone))
+        val myRef = database.getReference(currentDate)
+        myRef.child(currentTime).setValue(User(name,phone,serviceGender, serviceName))
 
+        val myRefUser = database.getReference("users")
+        val makeKey = "$currentDate$currentTime"
+        myRefUser.child(phone).child(makeKey).setValue(Appointment(makeKey,currentDate,currentTime,name, serviceName))
+
+        val directions = SubmitFragmentDirections.actionSubmitFragmentToFinishActivity(
+            serviceName,
+            "$currentDate at $currentTime",
+            name,
+            phone)
+        findNavController().navigate(directions)
         Toast.makeText(context, "Your appointment has been saved!", Toast.LENGTH_LONG).show()
-        val intent = Intent (activity, FinishActivity::class.java)
-        val bundle = Bundle()
-        bundle.putString("SERVICE_NAME", serviceName)
-        bundle.putString("DATE_AND_TIME", "$currentDate at $currentTime")
-        bundle.putString("NAME", name)
-        bundle.putString("PHONE", phone)
-        intent.putExtras(bundle)
-        activity?.startActivity(intent)
     }
 
 }

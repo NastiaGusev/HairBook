@@ -5,6 +5,5 @@ data class ServiceItem(
     var image: Int,
     var serviceName: String,
     var gender: String
-
 ) {
 }

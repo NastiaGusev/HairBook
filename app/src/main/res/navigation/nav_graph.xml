@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/chooseServiceFragment">
+    app:startDestination="@id/homeFragment2">
 
     <fragment
         android:id="@+id/chooseServiceFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_chooseServiceFragment_to_pickDateFragment"
             app:destination="@id/pickDateFragment" />
+        <action
+            android:id="@+id/action_chooseServiceFragment_to_myAppointmentsFragment"
+            app:destination="@id/myAppointmentsFragment" />
     </fragment>
     <fragment
         android:id="@+id/pickDateFragment"
@@ -50,6 +53,60 @@
         <argument
             android:name="serviceGender"
             app:argType="string" />
+        <action
+            android:id="@+id/action_submitFragment_to_finishActivity"
+            app:destination="@id/finishActivity" />
 
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.hairbook.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_chooseServiceFragment"
+            app:destination="@id/chooseServiceFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_hairdresserFragment"
+            app:destination="@id/hairdresserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hairdresserFragment"
+        android:name="com.example.hairbook.fragments.HairdresserFragment"
+        android:label="fragment_hairdresser"
+        tools:layout="@layout/fragment_hairdresser" >
+        <action
+            android:id="@+id/action_hairdresserFragment_to_changeHoursFragment"
+            app:destination="@id/changeHoursFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeHoursFragment"
+        android:name="com.example.hairbook.fragments.ChangeHoursFragment"
+        android:label="fragment_change_hours"
+        tools:layout="@layout/fragment_change_hours" />
+    <activity
+        android:id="@+id/finishActivity"
+        android:name="com.example.hairbook.activities.FinishActivity"
+        android:label="activity_finish"
+        tools:layout="@layout/activity_finish"
+        >
+
+        <argument
+            android:name="serviceName"
+            app:argType="string" />
+        <argument
+            android:name="dateAndTime"
+            app:argType="string" />
+        <argument
+            android:name="clientName"
+            app:argType="string" />
+        <argument
+            android:name="clientPhone"
+            app:argType="string" />
+    </activity>
+    <fragment
+        android:id="@+id/myAppointmentsFragment"
+        android:name="com.example.hairbook.fragments.MyAppointmentsFragment"
+        android:label="fragment_my_appointments"
+        tools:layout="@layout/fragment_my_appointments" />
 </navigation>
