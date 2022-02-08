@@ -1,14 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ChangeHoursFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ChangeHoursFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/pick_date_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="start"
+            android:layout_margin="16dp"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/service_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:text="Change hours"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/current_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:text="02-02-2022"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose hours to cancel"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/time_txt_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="10:00"
+            android:textSize="18sp"
+            android:clickable="true"
+            android:textColor="@color/grey"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/time_txt_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="11:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="12:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="13:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time_txt_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="14:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time_unselectable"
+            android:padding="10dp"
+            android:text="15:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time_selected"
+            android:padding="10dp"
+            android:text="16:00"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/time_txt_17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="17:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time_txt_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="18:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="19:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="20:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:id="@+id/time_txt_21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/background_time"
+            android:padding="10dp"
+            android:text="21:00"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkbox_allDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel all day"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        >
+
+    </CheckBox>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/BTN_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/mainColor"
+        android:text="submit"
+        android:textColor="@color/white"
+        app:cornerRadius="150dp"
+        app:rippleColor="@color/mainColor"
+        app:strokeColor="@color/mainColor" />
+
+</LinearLayout>

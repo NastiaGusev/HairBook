@@ -21,7 +21,9 @@ import com.example.hairbook.models.ServiceItem
 import com.google.android.material.transition.MaterialContainerTransform
 import com.google.firebase.database.*
 import devs.mulham.horizontalcalendar.HorizontalCalendar
+import devs.mulham.horizontalcalendar.model.CalendarItemStyle
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
+import devs.mulham.horizontalcalendar.utils.HorizontalCalendarPredicate
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

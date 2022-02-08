@@ -78,12 +78,24 @@
         <action
             android:id="@+id/action_hairdresserFragment_to_changeHoursFragment"
             app:destination="@id/changeHoursFragment" />
+        <action
+            android:id="@+id/action_hairdresserFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/changeHoursFragment"
         android:name="com.example.hairbook.fragments.ChangeHoursFragment"
         android:label="fragment_change_hours"
-        tools:layout="@layout/fragment_change_hours" />
+        tools:layout="@layout/fragment_change_hours" >
+
+        <argument
+            android:name="currentDate"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_changeHoursFragment_to_hairdresserFragment"
+            app:destination="@id/hairdresserFragment" />
+
+    </fragment>
     <activity
         android:id="@+id/finishActivity"
         android:name="com.example.hairbook.activities.FinishActivity"

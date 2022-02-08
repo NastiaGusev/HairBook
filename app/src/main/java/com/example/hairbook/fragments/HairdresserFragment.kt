@@ -51,7 +51,12 @@ class HairdresserFragment : Fragment() {
 
         binding.appointmentChangeHours.setOnClickListener {
             val directions =
-                HairdresserFragmentDirections.actionHairdresserFragmentToChangeHoursFragment()
+                HairdresserFragmentDirections.actionHairdresserFragmentToChangeHoursFragment(currentDate)
+            findNavController().navigate(directions)
+        }
+        binding.pickDateBack.setOnClickListener {
+            val directions =
+                HairdresserFragmentDirections.actionHairdresserFragmentToHomeFragment2()
             findNavController().navigate(directions)
         }
         initRecycleView()
@@ -107,9 +112,11 @@ class HairdresserFragment : Fragment() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (ds in dataSnapshot.children) {
                         val user = ds.getValue<User>()
-                        val appointment =
-                            AppointmentItem(ds.key.toString(), user!!.type, user.name, user.phone)
-                        appointmentArray.add(appointment)
+                        if(user!!.name!= "hairdresser"){
+                            val appointment =
+                                AppointmentItem(ds.key.toString(), user!!.type, user.name, user.phone)
+                            appointmentArray.add(appointment)
+                        }
                     }
                     appointmentAdapter.changeLists(appointmentArray)
                 }
