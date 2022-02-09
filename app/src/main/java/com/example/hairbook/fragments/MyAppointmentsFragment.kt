@@ -83,7 +83,16 @@ class MyAppointmentsFragment : Fragment(), AppointmentAdapterUser.OnItemClickLis
                             appointmentArray.add(appointment)
                         }
                     }
-                    appointmentAdapterUser.initList(appointmentArray)
+                    if (appointmentArray.isNotEmpty()) {
+                        appointmentAdapterUser.initList(appointmentArray)
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "There are no appointments with this phone number!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {

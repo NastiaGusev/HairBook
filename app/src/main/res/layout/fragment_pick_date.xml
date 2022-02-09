@@ -260,4 +260,15 @@
         android:layout_gravity="center"
         />
 
+    <TextView
+        android:id="@+id/txtNoAvailableHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="There are no available hours today!"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/mainColor"
+        android:visibility="invisible"/>
+
 </LinearLayout>

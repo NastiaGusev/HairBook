@@ -214,24 +214,31 @@ class PickDateFragment : Fragment() {
     }
 
     private fun submitButtonView() {
-        if (currentTime.isNotEmpty()) {
-            binding.BTNSubmit.setBackgroundColor(
-                ContextCompat.getColor(
-                    binding.root.context,
-                    R.color.lightGreen
+        if(timeArray.isEmpty()){
+            binding.BTNSubmit.visibility = View.INVISIBLE
+            binding.txtNoAvailableHours.visibility = View.VISIBLE
+        }else {
+            binding.BTNSubmit.visibility = View.VISIBLE
+            binding.txtNoAvailableHours.visibility = View.INVISIBLE
+            if (currentTime.isNotEmpty()) {
+                binding.BTNSubmit.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context,
+                        R.color.lightGreen
+                    )
                 )
-            )
-            binding.BTNSubmit.setStrokeColorResource(R.color.lightGreen)
-            binding.BTNSubmit.setRippleColorResource(R.color.lightGreen)
-        } else {
-            binding.BTNSubmit.setBackgroundColor(
-                ContextCompat.getColor(
-                    binding.root.context,
-                    R.color.red
+                binding.BTNSubmit.setStrokeColorResource(R.color.lightGreen)
+                binding.BTNSubmit.setRippleColorResource(R.color.lightGreen)
+            } else {
+                binding.BTNSubmit.setBackgroundColor(
+                    ContextCompat.getColor(
+                        binding.root.context,
+                        R.color.red
+                    )
                 )
-            )
-            binding.BTNSubmit.setStrokeColorResource(R.color.red)
-            binding.BTNSubmit.setRippleColorResource(R.color.red)
+                binding.BTNSubmit.setStrokeColorResource(R.color.red)
+                binding.BTNSubmit.setRippleColorResource(R.color.red)
+            }
         }
     }
 
