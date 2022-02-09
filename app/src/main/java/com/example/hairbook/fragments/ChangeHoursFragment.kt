@@ -1,7 +1,6 @@
 package com.example.hairbook.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +27,11 @@ class ChangeHoursFragment : Fragment() {
     private val currentDate: String by lazy(LazyThreadSafetyMode.NONE) { args.currentDate }
 
     private lateinit var binding: FragmentChangeHoursBinding
-    private var selectedTimeArray: ArrayList<String> = ArrayList()
 
+    private var selectedTimeArray: ArrayList<String> = ArrayList()
+    private var unselectedTimeArray: ArrayList<String> = ArrayList()
+
+    var hairDresserArray: ArrayList<TextView> = ArrayList()
     var availableArray: ArrayList<TextView> = ArrayList()
     var appointmentsArray: ArrayList<TextView> = ArrayList()
     var allTimeArray: ArrayList<TextView> = ArrayList()
@@ -50,6 +52,23 @@ class ChangeHoursFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.currentDate.text = currentDate
+        initAllTimeArray()
+        getAvailableHours()
+
+        binding.checkboxAllDay.setOnCheckedChangeListener { _, isChecked ->
+            checkBoxClicked(isChecked)
+        }
+        binding.BTNSubmit.setOnClickListener {
+            saveCancelHours()
+        }
+        binding.pickDateBack.setOnClickListener {
+            val directions =
+                ChangeHoursFragmentDirections.actionChangeHoursFragmentToHairdresserFragment()
+            findNavController().navigate(directions)
+        }
+    }
+
+    private fun initAllTimeArray(){
         allTimeArray.addAll(
             listOf(
                 binding.timeTxt10,
@@ -66,31 +85,32 @@ class ChangeHoursFragment : Fragment() {
                 binding.timeTxt21
             )
         )
+    }
 
-        getAvailableHours()
-        binding.checkboxAllDay.setOnCheckedChangeListener { _, isChecked ->
+    private fun checkBoxClicked(isChecked: Boolean) {
+        for (tv in availableArray) {
             if (isChecked) {
-                for (tv in availableArray) {
-                    selectedTimeArray.add(tv.text.toString())
-                }
-                selectAllViewTime()
+                selectedTimeArray.add(tv.text.toString())
+                unselectedTimeArray.remove(tv.text.toString())
+                selectedViewTime(tv)
             } else {
-                for (tv in availableArray) {
-                    selectedTimeArray.remove(tv.text.toString())
-                }
-                defaultViewTime()
+                selectedTimeArray.remove(tv.text.toString())
+                unselectedTimeArray.add(tv.text.toString())
+                unselectedViewTime(tv)
             }
-            submitButtonView()
         }
-        binding.BTNSubmit.setOnClickListener {
-            //submit hours to cancel
-            saveCancelHours()
+        for (tv in hairDresserArray) {
+            if (isChecked) {
+                selectedTimeArray.add(tv.text.toString())
+                unselectedTimeArray.remove(tv.text.toString())
+                selectedViewTime(tv)
+            } else {
+                selectedTimeArray.remove(tv.text.toString())
+                unselectedTimeArray.add(tv.text.toString())
+                unselectedViewTime(tv)
+            }
         }
-        binding.pickDateBack.setOnClickListener {
-            val directions =
-                ChangeHoursFragmentDirections.actionChangeHoursFragmentToHairdresserFragment()
-            findNavController().navigate(directions)
-        }
+        submitButtonView()
     }
 
     private fun getAvailableHours() {
@@ -107,14 +127,12 @@ class ChangeHoursFragment : Fragment() {
                     for (tv in allTimeArray) {
                         val time = tv.text.toString()
                         if (dataSnapshot.child(time).exists()) {
-//                            val user = dataSnapshot.child(time).getValue<User>()
-//                            if (user!!.name == "hairdresser") {
-//
-//                            } else {
-//
-//                            }
-                            appointmentsArray.add(tv)
-
+                            val user = dataSnapshot.child(time).getValue<User>()
+                            if (user!!.name == "hairdresser") {
+                                hairDresserArray.add(tv)
+                            } else {
+                                appointmentsArray.add(tv)
+                            }
                         } else {
                             availableArray.add(tv)
                         }
@@ -151,6 +169,9 @@ class ChangeHoursFragment : Fragment() {
         for (time in selectedTimeArray) {
             myRef.child(time).setValue(User("hairdresser", "", "", ""))
         }
+        for (time in unselectedTimeArray) {
+            myRef.child(time).removeValue()
+        }
         Toast.makeText(context, "Your changes have been saved!", Toast.LENGTH_SHORT).show()
         val directions =
             ChangeHoursFragmentDirections.actionChangeHoursFragmentToHairdresserFragment()
@@ -159,9 +180,14 @@ class ChangeHoursFragment : Fragment() {
 
     private fun updateHoursView() {
         setUnClickableAppointments()
-        defaultViewTime()
-        //hairDresserPick()
+        setDefaultTimeView()
+        hairDresserPick()
         for (textView in availableArray) {
+            textView.setOnClickListener {
+                onClickTime(textView)
+            }
+        }
+        for (textView in hairDresserArray) {
             textView.setOnClickListener {
                 onClickTime(textView)
             }
@@ -170,11 +196,14 @@ class ChangeHoursFragment : Fragment() {
     }
 
     private fun onClickTime(textView: TextView) {
-        if (selectedTimeArray.contains(textView.text.toString())) {
-            selectedTimeArray.remove(textView.text.toString())
+        val tv = textView.text.toString()
+        if (selectedTimeArray.contains(tv)) {
+            selectedTimeArray.remove(tv)
+            unselectedTimeArray.add(tv)
             unselectedViewTime(textView)
         } else {
-            selectedTimeArray.add(textView.text.toString())
+            selectedTimeArray.add(tv)
+            unselectedTimeArray.remove(tv)
             selectedViewTime(textView)
         }
         submitButtonView()
@@ -214,37 +243,19 @@ class ChangeHoursFragment : Fragment() {
         }
     }
 
-    private fun defaultViewTime() {
+    private fun setDefaultTimeView() {
         for (textView in availableArray) {
+            unselectedTimeArray.add(textView.text.toString())
             textView.isClickable = true
-            textView.background =
-                AppCompatResources.getDrawable(binding.root.context, R.drawable.background_time)
-            textView.setTextColor(ContextCompat.getColor(binding.root.context, R.color.grey))
+            unselectedViewTime(textView)
         }
     }
 
-//    private fun hairDresserPick() {
-//        for (textView in hairDresserArray) {
-//            selectedTimeArray.add(textView.text.toString())
-//            selectedViewTime(textView)
-//            textView.isClickable = true
-//            textView.background =
-//                AppCompatResources.getDrawable(
-//                    binding.root.context,
-//                    R.drawable.background_time_selected_red
-//                )
-//            textView.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white))
-//        }
-//    }
-
-    private fun selectAllViewTime() {
-        for (textView in availableArray) {
-            textView.background =
-                AppCompatResources.getDrawable(
-                    binding.root.context,
-                    R.drawable.background_time_selected_red
-                )
-            textView.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white))
+    private fun hairDresserPick() {
+        for (textView in hairDresserArray) {
+            selectedTimeArray.add(textView.text.toString())
+            selectedViewTime(textView)
+            textView.isClickable = true
         }
     }
 
@@ -271,8 +282,6 @@ class ChangeHoursFragment : Fragment() {
                 binding.root.context, R.color.grey
             )
         )
-
     }
-
 
 }

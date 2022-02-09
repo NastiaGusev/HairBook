@@ -2,7 +2,6 @@ package com.example.hairbook.fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,9 +20,7 @@ import com.example.hairbook.models.ServiceItem
 import com.google.android.material.transition.MaterialContainerTransform
 import com.google.firebase.database.*
 import devs.mulham.horizontalcalendar.HorizontalCalendar
-import devs.mulham.horizontalcalendar.model.CalendarItemStyle
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
-import devs.mulham.horizontalcalendar.utils.HorizontalCalendarPredicate
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -68,6 +65,19 @@ class PickDateFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+        initAllTimeArray()
+        addDataSet()
+        createCalender()
+
+        binding.serviceTitle.text = service.serviceName
+        binding.serviceImage.setImageResource(service.image)
+
+        binding.BTNSubmit.setOnClickListener {
+            submitButtonClicked()
+        }
+    }
+
+    private fun initAllTimeArray(){
         allTimeArray.addAll(
             listOf(
                 binding.timeTxt10,
@@ -84,25 +94,20 @@ class PickDateFragment : Fragment() {
                 binding.timeTxt21
             )
         )
-        addDataSet()
-        createCalender()
+    }
 
-        binding.serviceTitle.text = service.serviceName
-        binding.serviceImage.setImageResource(service.image)
-
-        binding.BTNSubmit.setOnClickListener {
-            if (currentTime.isNotEmpty()) {
-                val directions = PickDateFragmentDirections.actionPickDateFragmentToSubmitFragment(
-                    currentTime,
-                    currentDate,
-                    service.serviceName,
-                    service.image,
-                    service.gender
-                )
-                findNavController().navigate(directions)
-            } else {
-                Toast.makeText(context, "You have to pick a time!", Toast.LENGTH_LONG).show()
-            }
+    private fun submitButtonClicked(){
+        if (currentTime.isNotEmpty()) {
+            val directions = PickDateFragmentDirections.actionPickDateFragmentToSubmitFragment(
+                currentTime,
+                currentDate,
+                service.serviceName,
+                service.image,
+                service.gender
+            )
+            findNavController().navigate(directions)
+        } else {
+            Toast.makeText(context, "You have to pick a time!", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -192,7 +197,7 @@ class PickDateFragment : Fragment() {
 
     private fun updateHoursView() {
         setUnClickable()
-        defaultViewTime()
+        setDefaultTimeView()
         for (textView in timeArray) {
             textView.setOnClickListener {
                 onClickTime(textView)
@@ -204,8 +209,8 @@ class PickDateFragment : Fragment() {
     private fun onClickTime(textView: TextView) {
         currentTime = textView.text.toString()
         submitButtonView()
-        defaultViewTime()
-        selectedViewTime(textView)
+        setDefaultTimeView()
+        selectedTimeView(textView)
     }
 
     private fun submitButtonView() {
@@ -242,7 +247,7 @@ class PickDateFragment : Fragment() {
         }
     }
 
-    private fun defaultViewTime() {
+    private fun setDefaultTimeView() {
         for (textView in timeArray) {
             textView.isClickable = true
             textView.background =
@@ -251,7 +256,7 @@ class PickDateFragment : Fragment() {
         }
     }
 
-    private fun selectedViewTime(textView: TextView) {
+    private fun selectedTimeView(textView: TextView) {
         textView.background = AppCompatResources.getDrawable(
             binding.root.context,
             R.drawable.background_time_selected
