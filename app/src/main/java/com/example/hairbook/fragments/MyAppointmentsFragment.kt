@@ -1,9 +1,7 @@
 package com.example.hairbook.fragments
 
 import android.app.AlertDialog
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,19 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hairbook.adapters.AppointmentAdapterUser
 import com.example.hairbook.databinding.FragmentMyAppointmentsBinding
 import com.example.hairbook.models.Appointment
-import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
-import java.util.concurrent.TimeUnit
 
 class MyAppointmentsFragment : Fragment(), AppointmentAdapterUser.OnItemClickListener {
 
@@ -34,14 +24,10 @@ class MyAppointmentsFragment : Fragment(), AppointmentAdapterUser.OnItemClickLis
     private var appointmentAdapterUser = AppointmentAdapterUser(this)
     private var phone: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMyAppointmentsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -114,14 +100,14 @@ class MyAppointmentsFragment : Fragment(), AppointmentAdapterUser.OnItemClickLis
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
         //performing positive action
-        builder.setPositiveButton("Yes") { dialogInterface, which ->
+        builder.setPositiveButton("Yes") { dialogInterface, _ ->
             Toast.makeText(context, "Appointment deleted!", Toast.LENGTH_LONG).show()
             deleteAppointment(item)
             dialogInterface.dismiss()
         }
 
         //performing cancel action
-        builder.setNeutralButton("Cancel") { dialogInterface, which ->
+        builder.setNeutralButton("Cancel") { dialogInterface, _ ->
             dialogInterface.dismiss()
         }
 
